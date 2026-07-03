@@ -1,0 +1,17 @@
+schema_version = "1.0.0"
+
+id = "minislicer"
+version = "1.0.0"
+name = "MiniSlicer (Phrozen Sonic Mini)"
+tagline = "Lamina el objeto activo y exporta .phz directo desde Blender"
+maintainer = "German <german.andres.soto@gmail.com>"
+type = "add-on"
+
+blender_version_min = "4.2.0"
+
+license = ["SPDX:GPL-3.0-or-later"]
+
+tags = ["Import-Export", "3D View"]
+
+[permissions]
+files = "Escribir el archivo .phz exportado para la impresora"
