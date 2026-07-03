@@ -1,0 +1,21 @@
+{
+  "scale_pct": "331",
+  "rot_z": "0",
+  "layer_height_mm": "0.05",
+  "exposure_s": "2.5",
+  "bottom_layers": "5",
+  "bottom_exposure_s": "35.0",
+  "light_off_delay_s": "1.0",
+  "bottom_light_off_delay_s": "1.0",
+  "lift_height_mm": "5.0",
+  "lift_speed_mmpm": "65.0",
+  "bottom_lift_height_mm": "5.0",
+  "bottom_lift_speed_mmpm": "65.0",
+  "retract_speed_mmpm": "150.0",
+  "resolution_x": "1080",
+  "resolution_y": "1920",
+  "bed_x": "67.8",
+  "bed_y": "120.0",
+  "bed_z": "130.0",
+  "mirror_x": true
+}
