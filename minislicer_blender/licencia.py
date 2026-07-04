@@ -51,14 +51,14 @@ def verificar(clave, timeout=6.0):
             cuerpo = json.loads(resp.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
         if exc.code == 503:
-            return None, "La tienda no está disponible en este momento"
-        return False, f"Respuesta inesperada de la tienda ({exc.code})"
+            return None, "The store is not available right now"
+        return False, f"Unexpected response from the store ({exc.code})"
     except Exception as exc:  # noqa: BLE001 — sin red, DNS, timeout…
-        return None, f"Sin conexión con la tienda ({exc.__class__.__name__})"
+        return None, f"No connection to the store ({exc.__class__.__name__})"
 
     if cuerpo.get("valid"):
         return True, cuerpo.get("email", "")
-    return False, "Clave no válida o compra no encontrada"
+    return False, "Invalid key or purchase not found"
 
 
 def licencia_ok(prefs):

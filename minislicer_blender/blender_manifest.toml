@@ -1,9 +1,9 @@
 schema_version = "1.0.0"
 
 id = "minislicer"
-version = "1.0.0"
-name = "MiniSlicer (Phrozen Sonic Mini)"
-tagline = "Lamina el objeto activo y exporta .phz directo desde Blender"
+version = "1.1.0"
+name = "MiniSlicer (Phrozen)"
+tagline = "Slice and export .phz/.ctb for Phrozen printers in Blender"
 maintainer = "German <german.andres.soto@gmail.com>"
 type = "add-on"
 
@@ -14,4 +14,5 @@ license = ["SPDX:GPL-3.0-or-later"]
 tags = ["Import-Export", "3D View"]
 
 [permissions]
-files = "Escribir el archivo .phz exportado para la impresora"
+files = "Write the exported printer file (.phz/.ctb)"
+network = "Verify the purchase license key against the store"
