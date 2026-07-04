@@ -12,10 +12,10 @@ import bpy
 import numpy as np
 from bpy.props import (BoolProperty, EnumProperty, FloatProperty,
                        IntProperty, PointerProperty, StringProperty)
-from bpy.types import Operator, Panel, PropertyGroup
+from bpy.types import AddonPreferences, Operator, Panel, PropertyGroup
 from bpy_extras.io_utils import ExportHelper
 
-from . import phz, slicer
+from . import licencia, phz, slicer
 
 IMG_NAME = "MiniSlicer_Capa"
 
@@ -270,6 +270,80 @@ def _abort_export(state):
         pass
 
 
+# ------------------------------------------------------------- licencia
+
+def _prefs(context):
+    return context.preferences.addons[__package__].preferences
+
+
+def _exigir_licencia(op, context):
+    """True si se puede exportar; si no, reporta el error una sola vez."""
+    if licencia.licencia_ok(_prefs(context)):
+        return True
+    op.report({"ERROR"},
+              "MiniSlicer no está activado: ingresa tu clave de compra en "
+              "Edit → Preferences → Add-ons → MiniSlicer")
+    return False
+
+
+class MiniSlicerPrefs(AddonPreferences):
+    bl_idname = __package__
+
+    license_key: StringProperty(
+        name="Clave de licencia",
+        description="La clave que recibiste en tu página de descarga "
+                    "después de comprar")
+    activated: BoolProperty(default=False)
+    last_check: FloatProperty(default=0.0)
+    status_msg: StringProperty(default="")
+
+    def draw(self, context):
+        layout = self.layout
+        if self.activated:
+            layout.label(text=self.status_msg or "Licencia activada",
+                         icon="CHECKMARK")
+        else:
+            layout.label(text="Ingresa la clave de tu compra para "
+                              "desbloquear la exportación .phz",
+                         icon="KEY_HLT")
+        row = layout.row(align=True)
+        row.prop(self, "license_key", text="")
+        row.operator("minislicer.activar",
+                     icon="FILE_REFRESH" if self.activated else "UNLOCKED")
+        if self.status_msg and not self.activated:
+            layout.label(text=self.status_msg, icon="INFO")
+
+
+class MINISLICER_OT_activar(Operator):
+    bl_idname = "minislicer.activar"
+    bl_label = "Activar"
+    bl_description = "Comprueba la clave de compra contra la tienda"
+
+    def execute(self, context):
+        prefs = _prefs(context)
+        clave = prefs.license_key.strip()
+        if not licencia.clave_valida_en_forma(clave):
+            prefs.status_msg = "El formato de la clave no es válido"
+            self.report({"ERROR"}, prefs.status_msg)
+            return {"CANCELLED"}
+        estado, msg = licencia.verificar(clave)
+        if estado is True:
+            prefs.activated = True
+            prefs.last_check = time.time()
+            prefs.status_msg = (f"Activado — compra de {msg}"
+                                if msg else "Activado")
+            bpy.ops.wm.save_userpref()
+            self.report({"INFO"}, "MiniSlicer activado. ¡Gracias por tu compra!")
+            return {"FINISHED"}
+        prefs.status_msg = msg
+        if estado is None:
+            self.report({"WARNING"}, msg)
+        else:
+            prefs.activated = False
+            self.report({"ERROR"}, msg)
+        return {"CANCELLED"}
+
+
 # ------------------------------------------------------------- operadores
 
 class MINISLICER_OT_actualizar(Operator):
@@ -328,7 +402,14 @@ class MINISLICER_OT_exportar(Operator, ExportHelper):
     _timer = None
     _state = None
 
+    def invoke(self, context, event):
+        if not _exigir_licencia(self, context):
+            return {"CANCELLED"}
+        return ExportHelper.invoke(self, context, event)
+
     def execute(self, context):
+        if not _exigir_licencia(self, context):
+            return {"CANCELLED"}
         try:
             self._state = _prepare_export(context, self.filepath)
         except (ValueError, OSError) as exc:
@@ -445,6 +526,15 @@ class VIEW3D_PT_minislicer(Panel):
         layout = self.layout
         profile = slicer.SONIC_MINI
 
+        prefs = _prefs(context)
+        if not prefs.activated:
+            box = layout.box()
+            box.label(text="Add-on sin activar", icon="LOCKED")
+            box.label(text="La exportación .phz requiere tu clave de compra")
+            op = box.operator("preferences.addon_show",
+                              text="Activar licencia…", icon="KEY_HLT")
+            op.module = __package__
+
         col = layout.column(align=True)
         col.operator("minislicer.actualizar", icon="FILE_REFRESH")
 
@@ -508,6 +598,8 @@ class VIEW3D_PT_minislicer(Panel):
 # ------------------------------------------------------------------ registro
 
 _classes = (
+    MiniSlicerPrefs,
+    MINISLICER_OT_activar,
     MiniSlicerProps,
     MINISLICER_OT_actualizar,
     MINISLICER_OT_abrir_visor,
