@@ -14,8 +14,9 @@ import time
 import urllib.error
 import urllib.request
 
-# Actualizar cuando la tienda tenga dominio definitivo.
-STORE_URL = "https://addon-store.vercel.app"
+# La plataforma de venta es Shushi Software (las claves viven en su BD).
+# Actualizar cuando tenga dominio definitivo.
+STORE_URL = "https://shushi-software.vercel.app"
 VERIFY_PATH = "/api/license/verify"
 
 RECHECK_S = 30 * 24 * 3600  # re-verificación silenciosa: 30 días
