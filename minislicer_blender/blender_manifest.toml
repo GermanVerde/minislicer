@@ -1,8 +1,8 @@
 schema_version = "1.0.0"
 
 id = "minislicer"
-version = "1.1.0"
-name = "MiniSlicer (Phrozen)"
+version = "1.1.1"
+name = "MiniSlicer for Blender"
 tagline = "Slice and export .phz/.ctb for Phrozen printers in Blender"
 maintainer = "German <german.andres.soto@gmail.com>"
 type = "add-on"
