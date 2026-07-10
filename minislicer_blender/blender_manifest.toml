@@ -6,7 +6,7 @@ name = "MiniSlicer for Blender"
 tagline = "Slice and export .phz/.ctb for Phrozen printers in Blender"
 maintainer = "German <german.andres.soto@gmail.com>"
 type = "add-on"
-website = "https://github.com/GermanVerde/blender-plugin-PHZ"
+website = "https://github.com/GermanVerde/minislicer"
 
 blender_version_min = "4.2.0"
 

@@ -1,11 +1,11 @@
-# Blender Plugin PHZ — MiniSlicer para Phrozen Sonic Mini
+# MiniSlicer for Blender
 
-Add-on de Blender que **lamina el objeto activo y exporta archivos `.phz`**
-listos para imprimir en la impresora de resina **Phrozen Sonic Mini**, sin
-salir de Blender y sin software intermedio.
+Add-on de Blender que **lamina el objeto activo y exporta archivos nativos
+(`.phz` / `.ctb`)** listos para imprimir en impresoras de resina
+**Phrozen**, sin salir de Blender y sin software intermedio.
 
-*Blender add-on that slices the active object and exports `.phz` files for
-the Phrozen Sonic Mini resin printer, directly from Blender.*
+*Blender add-on that slices the active object and exports native
+`.phz` / `.ctb` files for Phrozen resin printers, directly from Blender.*
 
 **Gratis y de código abierto.** Si MiniSlicer te resulta útil, puedes
 apoyar su desarrollo con una donación en Ko-fi:
@@ -14,12 +14,42 @@ apoyar su desarrollo con una donación en Ko-fi:
 *Free and open source. If MiniSlicer is useful to you, you can support its
 development with a donation on Ko-fi.*
 
+## Impresoras compatibles
+
+| Modelo | Resolución | Placa (mm) | Formato | Estado |
+|---|---|---|---|---|
+| Sonic Mini | 1080×1920 | 67.8×120×130 | `.phz` | ✅ Probada en hardware |
+| Sonic | 1080×1920 | 67.8×120×170 | `.phz` | 🧪 Beta |
+| Transform | 3840×2160 | 291.8×164.2×400 | `.phz` | 🧪 Beta |
+| Sonic Mini 4K | 3840×2160 | 134.4×75.6×130 | `.ctb` | 🧪 Beta |
+| Sonic Mini 8K | 7500×3240 | 165×71.3×180 | `.ctb` | 🧪 Beta |
+| Sonic 4K | 3840×2160 | 134.4×75.6×200 | `.ctb` | 🧪 Beta |
+| Sonic XL 4K | 3840×2400 | 192×120×200 | `.ctb` | 🧪 Beta |
+| Sonic Mighty 4K | 3840×2400 | 200×125×220 | `.ctb` | 🧪 Beta |
+| Sonic Mighty 8K | 7680×4320 | 218×123×235 | `.ctb` | 🧪 Beta |
+| Sonic Mega 8K | 7680×4320 | 330×185×400 | `.ctb` | 🧪 Beta |
+| Sonic Mini 8K S | 7536×3240 | 165.8×71.3×170 | `.prz` | 🚧 Próximamente |
+| Sonic Mighty 12K | 11520×5120 | 218.9×123.1×235 | `.prz` | 🚧 Próximamente |
+| Sonic Mega 8K S | 7680×4320 | 330×185×300 | `.prz` | 🚧 Próximamente |
+
+**Sobre el estado beta**: los perfiles provienen de las especificaciones
+publicadas por Phrozen y los archivos generados están validados contra las
+implementaciones de referencia (relectura píxel a píxel, UVtools, uv3dp),
+pero por ahora solo la **Sonic Mini** está verificada con impresiones
+reales. Si imprimes con otro modelo, [abre un issue][issues] contando cómo
+te fue — con eso el perfil pasa de beta a verificado. Los modelos `.prz`
+(2023+) aparecen en el panel pero aún no tienen escritor de archivo.
+
+[issues]: ../../issues
+
 ## Características
 
 - **Panel integrado**: barra lateral del viewport 3D (tecla `N`), pestaña
-  «MiniSlicer», interfaz en español.
-- **Visor de capas**: muestra la imagen exacta de cada capa (1080×1920) tal
-  como la proyectará el LCD, navegable capa por capa.
+  «MiniSlicer», interfaz traducida a 10 idiomas.
+- **13 perfiles Phrozen** con el volumen de impresión dibujado en el
+  viewport; la pieza se centra sola al laminar.
+- **Visor de capas**: muestra la imagen exacta de cada capa a la
+  resolución nativa del LCD del perfil elegido, navegable capa por capa.
 - **Laminado directo del objeto activo**: los modificadores (Boolean,
   Remesh, soportes…) se aplican automáticamente; la escala y rotación del
   objeto se respetan.
@@ -29,13 +59,13 @@ development with a donation on Ko-fi.*
   internas de mallas cerradas salen correctos sin configurar nada.
 - Estimación de resina (ml) y tiempo de impresión; aviso si la pieza no
   cabe en la placa; miniaturas para la pantalla de la impresora.
-- **Cero dependencias**: solo usa el numpy incluido en Blender.
+- **Cero dependencias y cero red**: solo usa el numpy incluido en Blender,
+  sin claves de activación, sin telemetría, sin conexión a nada.
 
 ## Requisitos
 
 - Blender **4.2 o superior** (probado en 5.1.2).
-- Impresora Phrozen Sonic Mini (LCD 1080×1920, placa 67.8×120×130 mm,
-  formato `.phz`, imagen espejada en X).
+- Una impresora de resina Phrozen de la tabla de arriba.
 
 ## Instalación
 
@@ -47,12 +77,14 @@ development with a donation on Ko-fi.*
 
 ## Uso
 
-1. Selecciona tu pieza (malla cerrada/estanca, con soportes ya modelados).
-2. **Cargar / actualizar modelo** — revisa tamaño en mm, capas y tiempo.
-3. **Abrir visor de capas** — inspecciona las secciones antes de exportar.
-4. Ajusta exposición según tu resina (típico: 1.5–3 s por capa de 0.05 mm;
+1. Elige tu **impresora** en el desplegable del panel.
+2. Selecciona tu pieza (malla cerrada/estanca, con soportes ya modelados).
+3. **Cargar / actualizar modelo** — revisa tamaño en mm, capas y tiempo.
+4. **Abrir visor de capas** — inspecciona las secciones antes de exportar.
+5. Ajusta exposición según tu resina (típico: 1.5–3 s por capa de 0.05 mm;
    base 30–40 s).
-5. **Exportar .phz** → copia el archivo al pendrive → imprime.
+6. **Exportar** (`.phz` o `.ctb` según el perfil) → copia el archivo al
+   pendrive → imprime.
 
 **Unidades**: por defecto usa las de la escena (1 m = 1000 mm). Si modelas
 con la convención «1 unidad = 1 mm», cámbialo en el selector del panel.
@@ -63,16 +95,16 @@ con la convención «1 unidad = 1 mm», cámbialo en el selector del panel.
 blender --command extension build --source-dir minislicer_blender --output-filepath MiniSlicer_Blender.zip
 ```
 
-## Detalles técnicos del formato
+## Detalles técnicos de los formatos
 
-El formato `.phz` (ChiTu, versión 2) está implementado según la
+Los formatos `.phz` y `.ctb` (ChiTu) están implementados según la
 implementación de referencia de [UVtools](https://github.com/sn4k3/UVtools)
-(`PHZFile.cs`) y la documentación de
+y la documentación de
 [catibo](https://github.com/cbiffle/catibo/blob/master/doc/cbddlp-ctb.adoc):
 
-- Cabecera de 216 bytes, tabla de capas de 36 bytes por capa.
-- Imagen de capa: RLE de gris de 7 bits con corte de corridas a mitad de
-  fila; soporte de cifrado XOR (se escribe sin cifrar, `EncryptionKey=0`).
+- Cabecera y tabla de capas binarias según cada spec.
+- Imagen de capa: RLE de gris de 7 bits (`.phz`) / RLE del formato `.ctb`;
+  soporte de cifrado XOR (se escribe sin cifrar, `EncryptionKey=0`).
 - Vistas previas RGB15 + RLE (400×300 y 200×125).
 
 Los archivos generados fueron validados por ida y vuelta (relectura píxel a
