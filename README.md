@@ -1,24 +1,20 @@
 # MiniSlicer for Blender
 
-Add-on de Blender que **lamina el objeto activo y exporta archivos nativos
-(`.phz` / `.ctb`)** listos para imprimir en impresoras de resina
-**Phrozen**, sin salir de Blender y sin software intermedio.
+**English** | [Español](README.es.md)
 
-*Blender add-on that slices the active object and exports native
-`.phz` / `.ctb` files for Phrozen resin printers, directly from Blender.*
+Blender add-on that **slices the active object and exports native
+`.phz` / `.ctb` files** ready to print on **Phrozen** resin printers,
+without leaving Blender and with no intermediate software.
 
-**Gratis y de código abierto.** Si MiniSlicer te resulta útil, puedes
-apoyar su desarrollo con una donación en Ko-fi:
+**Free and open source.** If MiniSlicer is useful to you, you can support
+its development with a donation on Ko-fi:
 [ko-fi.com/micotico36213](https://ko-fi.com/micotico36213) ☕
 
-*Free and open source. If MiniSlicer is useful to you, you can support its
-development with a donation on Ko-fi.*
+## Supported printers
 
-## Impresoras compatibles
-
-| Modelo | Resolución | Placa (mm) | Formato | Estado |
+| Model | Resolution | Plate (mm) | Format | Status |
 |---|---|---|---|---|
-| Sonic Mini | 1080×1920 | 67.8×120×130 | `.phz` | ✅ Probada en hardware |
+| Sonic Mini | 1080×1920 | 67.8×120×130 | `.phz` | ✅ Verified on hardware |
 | Sonic | 1080×1920 | 67.8×120×170 | `.phz` | 🧪 Beta |
 | Transform | 3840×2160 | 291.8×164.2×400 | `.phz` | 🧪 Beta |
 | Sonic Mini 4K | 3840×2160 | 134.4×75.6×130 | `.ctb` | 🧪 Beta |
@@ -28,99 +24,98 @@ development with a donation on Ko-fi.*
 | Sonic Mighty 4K | 3840×2400 | 200×125×220 | `.ctb` | 🧪 Beta |
 | Sonic Mighty 8K | 7680×4320 | 218×123×235 | `.ctb` | 🧪 Beta |
 | Sonic Mega 8K | 7680×4320 | 330×185×400 | `.ctb` | 🧪 Beta |
-| Sonic Mini 8K S | 7536×3240 | 165.8×71.3×170 | `.prz` | 🚧 Próximamente |
-| Sonic Mighty 12K | 11520×5120 | 218.9×123.1×235 | `.prz` | 🚧 Próximamente |
-| Sonic Mega 8K S | 7680×4320 | 330×185×300 | `.prz` | 🚧 Próximamente |
+| Sonic Mini 8K S | 7536×3240 | 165.8×71.3×170 | `.prz` | 🚧 Coming soon |
+| Sonic Mighty 12K | 11520×5120 | 218.9×123.1×235 | `.prz` | 🚧 Coming soon |
+| Sonic Mega 8K S | 7680×4320 | 330×185×300 | `.prz` | 🚧 Coming soon |
 
-**Sobre el estado beta**: los perfiles provienen de las especificaciones
-publicadas por Phrozen y los archivos generados están validados contra las
-implementaciones de referencia (relectura píxel a píxel, UVtools, uv3dp),
-pero por ahora solo la **Sonic Mini** está verificada con impresiones
-reales. Si imprimes con otro modelo, [abre un issue][issues] contando cómo
-te fue — con eso el perfil pasa de beta a verificado. Los modelos `.prz`
-(2023+) aparecen en el panel pero aún no tienen escritor de archivo.
+**About the beta status**: profiles come from the specifications published
+by Phrozen, and the generated files are validated against the reference
+implementations (pixel-by-pixel round-trip, UVtools, uv3dp), but for now
+only the **Sonic Mini** has been verified with real prints. If you print
+with another model, [open an issue][issues] and tell us how it went — that
+is what moves a profile from beta to verified. The `.prz` models (2023+)
+appear in the panel but have no file writer yet.
 
 [issues]: ../../issues
 
-## Características
+## Features
 
-- **Panel integrado**: barra lateral del viewport 3D (tecla `N`), pestaña
-  «MiniSlicer», interfaz traducida a 10 idiomas.
-- **13 perfiles Phrozen** con el volumen de impresión dibujado en el
-  viewport; la pieza se centra sola al laminar.
-- **Visor de capas**: muestra la imagen exacta de cada capa a la
-  resolución nativa del LCD del perfil elegido, navegable capa por capa.
-- **Laminado directo del objeto activo**: los modificadores (Boolean,
-  Remesh, soportes…) se aplican automáticamente; la escala y rotación del
-  objeto se respetan.
-- **Exportación sin congelar la interfaz**: operador modal con avance en la
-  barra de estado (`Esc` cancela).
-- Relleno por scanline con regla **par-impar**: agujeros y cavidades
-  internas de mallas cerradas salen correctos sin configurar nada.
-- Estimación de resina (ml) y tiempo de impresión; aviso si la pieza no
-  cabe en la placa; miniaturas para la pantalla de la impresora.
-- **Cero dependencias y cero red**: solo usa el numpy incluido en Blender,
-  sin claves de activación, sin telemetría, sin conexión a nada.
+- **Integrated panel**: 3D viewport sidebar (`N` key), "MiniSlicer" tab,
+  UI translated into 10 languages.
+- **13 Phrozen profiles** with the build volume drawn in the viewport;
+  the part is auto-centered when slicing.
+- **Layer viewer**: shows the exact image of each layer at the native LCD
+  resolution of the selected profile, navigable layer by layer.
+- **Slices the active object directly**: modifiers (Boolean, Remesh,
+  supports…) are applied automatically; object scale and rotation are
+  respected.
+- **Non-blocking export**: modal operator with progress in the status bar
+  (`Esc` cancels).
+- Scanline fill with the **even-odd** rule: holes and internal cavities of
+  watertight meshes come out right with zero setup.
+- Resin (ml) and print-time estimates; warning when the part does not fit
+  the plate; thumbnails for the printer screen.
+- **Zero dependencies, zero network**: only uses the numpy bundled with
+  Blender — no activation keys, no telemetry, no connection to anything.
 
-## Requisitos
+## Requirements
 
-- Blender **4.2 o superior** (probado en 5.1.2).
-- Una impresora de resina Phrozen de la tabla de arriba.
+- Blender **4.2 or newer** (tested on 5.1.2).
+- A Phrozen resin printer from the table above.
 
-## Instalación
+## Installation
 
-1. Descarga `MiniSlicer_Blender.zip` (o constrúyelo, ver abajo).
-2. En Blender: `Edit → Preferences → Add-ons → ▼ → Install from Disk…`
-   y elige el zip.
-3. Verifica que la casilla del add-on quede **marcada**.
-4. En el viewport 3D presiona `N` → pestaña **MiniSlicer**.
+1. Download `MiniSlicer_Blender.zip` (or build it, see below).
+2. In Blender: `Edit → Preferences → Add-ons → ▼ → Install from Disk…`
+   and pick the zip.
+3. Make sure the add-on checkbox is **enabled**.
+4. In the 3D viewport press `N` → **MiniSlicer** tab.
 
-## Uso
+## Usage
 
-1. Elige tu **impresora** en el desplegable del panel.
-2. Selecciona tu pieza (malla cerrada/estanca, con soportes ya modelados).
-3. **Cargar / actualizar modelo** — revisa tamaño en mm, capas y tiempo.
-4. **Abrir visor de capas** — inspecciona las secciones antes de exportar.
-5. Ajusta exposición según tu resina (típico: 1.5–3 s por capa de 0.05 mm;
-   base 30–40 s).
-6. **Exportar** (`.phz` o `.ctb` según el perfil) → copia el archivo al
-   pendrive → imprime.
+1. Pick your **printer** in the panel dropdown.
+2. Select your part (watertight mesh, with supports already modeled).
+3. **Load / Refresh Model** — check size in mm, layer count and time.
+4. **Open Layer Viewer** — inspect the sections before exporting.
+5. Adjust exposure for your resin (typical: 1.5–3 s per 0.05 mm layer;
+   bottom 30–40 s).
+6. **Export** (`.phz` or `.ctb` depending on the profile) → copy the file
+   to the USB drive → print.
 
-**Unidades**: por defecto usa las de la escena (1 m = 1000 mm). Si modelas
-con la convención «1 unidad = 1 mm», cámbialo en el selector del panel.
+**Units**: by default it uses the scene units (1 m = 1000 mm). If you model
+with the "1 unit = 1 mm" convention, change it in the panel selector.
 
-## Construir el zip desde el código
+## Building the zip from source
 
 ```
 blender --command extension build --source-dir minislicer_blender --output-filepath MiniSlicer_Blender.zip
 ```
 
-## Detalles técnicos de los formatos
+## File format details
 
-Los formatos `.phz` y `.ctb` (ChiTu) están implementados según la
-implementación de referencia de [UVtools](https://github.com/sn4k3/UVtools)
-y la documentación de
-[catibo](https://github.com/cbiffle/catibo/blob/master/doc/cbddlp-ctb.adoc):
+The `.phz` and `.ctb` (ChiTu) formats are implemented after the reference
+implementation in [UVtools](https://github.com/sn4k3/UVtools) and the
+[catibo](https://github.com/cbiffle/catibo/blob/master/doc/cbddlp-ctb.adoc)
+documentation:
 
-- Cabecera y tabla de capas binarias según cada spec.
-- Imagen de capa: RLE de gris de 7 bits (`.phz`) / RLE del formato `.ctb`;
-  soporte de cifrado XOR (se escribe sin cifrar, `EncryptionKey=0`).
-- Vistas previas RGB15 + RLE (400×300 y 200×125).
+- Binary header and per-layer table according to each spec.
+- Layer image: 7-bit grayscale RLE (`.phz`) / `.ctb` RLE; XOR encryption
+  supported (files are written unencrypted, `EncryptionKey=0`).
+- RGB15 + RLE previews (400×300 and 200×125).
 
-Los archivos generados fueron validados por ida y vuelta (relectura píxel a
-píxel) y con [uv3dp](https://github.com/ezrec/uv3dp) como lector
-independiente.
+Generated files were validated round-trip (pixel-by-pixel re-read) and with
+[uv3dp](https://github.com/ezrec/uv3dp) as an independent reader.
 
-## Primera impresión
+## First print
 
-Imprime primero un cubo de calibración de 20 mm: si mide 20.0 mm por lado y
-la orientación es correcta (nada en espejo), el perfil está bien. Si algo
-sale invertido, destilda «Espejar imagen en X».
+Print a 20 mm calibration cube first: if it measures 20.0 mm per side and
+the orientation is correct (nothing mirrored), the profile is fine. If
+something comes out inverted, untick "Mirror Image in X".
 
-## Licencia
+## License
 
-[GPL-3.0-or-later](LICENSE) — como todos los add-ons de Blender. Gratis,
-sin claves de activación ni registro.
+[GPL-3.0-or-later](LICENSE) — like every Blender add-on. Free, with no
+activation keys and no registration.
 
-Este software se ofrece sin garantía; verifica siempre la primera impresión
-con una pieza pequeña.
+This software comes with no warranty; always verify your first print with
+a small part.
