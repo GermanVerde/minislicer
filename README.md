@@ -9,7 +9,7 @@ the Phrozen Sonic Mini resin printer, directly from Blender.*
 
 **Gratis y de código abierto.** Si MiniSlicer te resulta útil, puedes
 apoyar su desarrollo con una donación en Ko-fi:
-[ko-fi.com/PENDIENTE](https://ko-fi.com/PENDIENTE) ☕
+[ko-fi.com/micotico36213](https://ko-fi.com/micotico36213) ☕
 
 *Free and open source. If MiniSlicer is useful to you, you can support its
 development with a donation on Ko-fi.*
