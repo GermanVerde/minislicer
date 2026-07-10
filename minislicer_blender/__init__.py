@@ -17,11 +17,11 @@ import numpy as np
 from bpy.app.translations import pgettext_iface as T_
 from bpy.props import (BoolProperty, EnumProperty, FloatProperty,
                        IntProperty, PointerProperty, StringProperty)
-from bpy.types import AddonPreferences, Operator, Panel, PropertyGroup
+from bpy.types import Operator, Panel, PropertyGroup
 from bpy_extras.io_utils import ExportHelper
 from gpu_extras.batch import batch_for_shader
 
-from . import ctb, licencia, perfiles, phz, slicer, traducciones
+from . import ctb, perfiles, phz, slicer, traducciones
 
 IMG_NAME = "MiniSlicer_Layer"
 
@@ -352,80 +352,6 @@ def _abort_export(state):
         pass
 
 
-# ------------------------------------------------------------- licencia
-
-def _prefs(context):
-    return context.preferences.addons[__package__].preferences
-
-
-def _exigir_licencia(op, context):
-    """True si se puede exportar; si no, reporta el error una sola vez."""
-    if licencia.licencia_ok(_prefs(context)):
-        return True
-    op.report({"ERROR"}, T_(
-        "MiniSlicer is not activated: enter your purchase key in "
-        "Edit > Preferences > Add-ons > MiniSlicer"))
-    return False
-
-
-class MiniSlicerPrefs(AddonPreferences):
-    bl_idname = __package__
-
-    license_key: StringProperty(
-        name="License key",
-        description="The key from your download page after purchase")
-    activated: BoolProperty(default=False)
-    last_check: FloatProperty(default=0.0)
-    status_msg: StringProperty(default="")
-
-    def draw(self, context):
-        layout = self.layout
-        if self.activated:
-            layout.label(text=self.status_msg or T_("License active"),
-                         icon="CHECKMARK")
-        else:
-            layout.label(
-                text="Enter your purchase key to unlock exporting",
-                icon="KEY_HLT")
-        row = layout.row(align=True)
-        row.prop(self, "license_key", text="")
-        row.operator("minislicer.activar",
-                     icon="FILE_REFRESH" if self.activated else "UNLOCKED")
-        if self.status_msg and not self.activated:
-            layout.label(text=self.status_msg, icon="INFO")
-
-
-class MINISLICER_OT_activar(Operator):
-    bl_idname = "minislicer.activar"
-    bl_label = "Activate"
-    bl_description = "Check the purchase key against the store"
-
-    def execute(self, context):
-        prefs = _prefs(context)
-        clave = prefs.license_key.strip()
-        if not licencia.clave_valida_en_forma(clave):
-            prefs.status_msg = T_("The key format is not valid")
-            self.report({"ERROR"}, prefs.status_msg)
-            return {"CANCELLED"}
-        estado, msg = licencia.verificar(clave)
-        if estado is True:
-            prefs.activated = True
-            prefs.last_check = time.time()
-            prefs.status_msg = (T_("Activated — purchase by %s") % msg
-                                if msg else T_("Activated"))
-            bpy.ops.wm.save_userpref()
-            self.report({"INFO"},
-                        T_("MiniSlicer activated. Thank you for your purchase!"))
-            return {"FINISHED"}
-        prefs.status_msg = msg
-        if estado is None:
-            self.report({"WARNING"}, msg)
-        else:
-            prefs.activated = False
-            self.report({"ERROR"}, msg)
-        return {"CANCELLED"}
-
-
 # ------------------------------------------------------------- operadores
 
 class MINISLICER_OT_actualizar(Operator):
@@ -500,8 +426,6 @@ class MINISLICER_OT_exportar(Operator, ExportHelper):
     _state = None
 
     def invoke(self, context, event):
-        if not _exigir_licencia(self, context):
-            return {"CANCELLED"}
         p = context.scene.minislicer
         profile = _perfil(p)
         formato = profile["formato"]
@@ -513,8 +437,6 @@ class MINISLICER_OT_exportar(Operator, ExportHelper):
         return ExportHelper.invoke(self, context, event)
 
     def execute(self, context):
-        if not _exigir_licencia(self, context):
-            return {"CANCELLED"}
         try:
             self._state = _prepare_export(context, self.filepath)
         except (ValueError, OSError) as exc:
@@ -659,15 +581,6 @@ class VIEW3D_PT_minislicer(Panel):
         layout = self.layout
         profile = _perfil(p)
 
-        prefs = _prefs(context)
-        if not prefs.activated:
-            box = layout.box()
-            box.label(text="Add-on not activated", icon="LOCKED")
-            box.label(text="Exporting requires your purchase key")
-            op = box.operator("preferences.addon_show",
-                              text="Activate license…", icon="KEY_HLT")
-            op.module = __package__
-
         col = layout.column(align=True)
         col.prop(p, "printer", text="")
         col.prop(p, "show_bed", icon="MESH_CUBE")
@@ -751,8 +664,6 @@ class IMAGE_PT_minislicer(Panel):
 # ------------------------------------------------------------------ registro
 
 _classes = (
-    MiniSlicerPrefs,
-    MINISLICER_OT_activar,
     MiniSlicerProps,
     MINISLICER_OT_actualizar,
     MINISLICER_OT_abrir_visor,

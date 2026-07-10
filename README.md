@@ -7,6 +7,13 @@ salir de Blender y sin software intermedio.
 *Blender add-on that slices the active object and exports `.phz` files for
 the Phrozen Sonic Mini resin printer, directly from Blender.*
 
+**Gratis y de código abierto.** Si MiniSlicer te resulta útil, puedes
+apoyar su desarrollo con una donación en Ko-fi:
+[ko-fi.com/PENDIENTE](https://ko-fi.com/PENDIENTE) ☕
+
+*Free and open source. If MiniSlicer is useful to you, you can support its
+development with a donation on Ko-fi.*
+
 ## Características
 
 - **Panel integrado**: barra lateral del viewport 3D (tecla `N`), pestaña
@@ -80,7 +87,8 @@ sale invertido, destilda «Espejar imagen en X».
 
 ## Licencia
 
-[GPL-3.0-or-later](LICENSE) — como todos los add-ons de Blender.
+[GPL-3.0-or-later](LICENSE) — como todos los add-ons de Blender. Gratis,
+sin claves de activación ni registro.
 
 Este software se ofrece sin garantía; verifica siempre la primera impresión
 con una pieza pequeña.

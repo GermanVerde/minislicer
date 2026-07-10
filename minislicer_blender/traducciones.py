@@ -10,22 +10,6 @@ _ES = {
     "Select a mesh object": "Selecciona un objeto de tipo malla",
     "The mesh has no faces": "La malla no tiene caras",
     "The .%s format is not supported yet": "El formato .%s aún no está soportado",
-    "MiniSlicer is not activated: enter your purchase key in Edit > Preferences > Add-ons > MiniSlicer":
-        "MiniSlicer no está activado: ingresa tu clave de compra en Edit > Preferences > Add-ons > MiniSlicer",
-    "License key": "Clave de licencia",
-    "The key from your download page after purchase":
-        "La clave de tu página de descarga después de comprar",
-    "License active": "Licencia activada",
-    "Enter your purchase key to unlock exporting":
-        "Ingresa tu clave de compra para desbloquear la exportación",
-    "Activate": "Activar",
-    "Check the purchase key against the store":
-        "Comprueba la clave de compra contra la tienda",
-    "The key format is not valid": "El formato de la clave no es válido",
-    "Activated — purchase by %s": "Activado — compra de %s",
-    "Activated": "Activado",
-    "MiniSlicer activated. Thank you for your purchase!":
-        "MiniSlicer activado. ¡Gracias por tu compra!",
     "Load / Refresh Model": "Cargar / actualizar modelo",
     "Takes the active object (with modifiers applied) and prepares it for slicing":
         "Toma el objeto activo (con modificadores aplicados) y lo prepara para laminar",
@@ -77,40 +61,16 @@ _ES = {
     "Scale (%)": "Escala (%)",
     "Layer": "Capa",
     "Layer shown in the viewer": "Capa mostrada en el visor",
-    "Add-on not activated": "Add-on sin activar",
-    "Exporting requires your purchase key":
-        "La exportación requiere tu clave de compra",
-    "Activate license…": "Activar licencia…",
     "No model prepared": "Sin modelo preparado",
     "Does not fit the plate!": "¡No cabe en la placa!",
     "Export .%s": "Exportar .%s",
     "Pixel: %d × %d µm": "Píxel: %d × %d µm",
-    "The store is not available right now":
-        "La tienda no está disponible en este momento",
-    "Invalid key or purchase not found":
-        "Clave no válida o compra no encontrada",
 }
 
 _DE = {
     "Select a mesh object": "Wähle ein Mesh-Objekt aus",
     "The mesh has no faces": "Das Mesh hat keine Flächen",
     "The .%s format is not supported yet": "Das .%s-Format wird noch nicht unterstützt",
-    "MiniSlicer is not activated: enter your purchase key in Edit > Preferences > Add-ons > MiniSlicer":
-        "MiniSlicer ist nicht aktiviert: Kaufschlüssel unter Edit > Preferences > Add-ons > MiniSlicer eingeben",
-    "License key": "Lizenzschlüssel",
-    "The key from your download page after purchase":
-        "Der Schlüssel von deiner Download-Seite nach dem Kauf",
-    "License active": "Lizenz aktiv",
-    "Enter your purchase key to unlock exporting":
-        "Kaufschlüssel eingeben, um den Export freizuschalten",
-    "Activate": "Aktivieren",
-    "Check the purchase key against the store":
-        "Prüft den Kaufschlüssel gegen den Shop",
-    "The key format is not valid": "Das Schlüsselformat ist ungültig",
-    "Activated — purchase by %s": "Aktiviert — Kauf von %s",
-    "Activated": "Aktiviert",
-    "MiniSlicer activated. Thank you for your purchase!":
-        "MiniSlicer aktiviert. Danke für deinen Kauf!",
     "Load / Refresh Model": "Modell laden / aktualisieren",
     "Takes the active object (with modifiers applied) and prepares it for slicing":
         "Nimmt das aktive Objekt (mit angewendeten Modifikatoren) und bereitet es zum Slicen vor",
@@ -162,10 +122,6 @@ _DE = {
     "Scale (%)": "Skalierung (%)",
     "Layer": "Schicht",
     "Layer shown in the viewer": "In der Ansicht gezeigte Schicht",
-    "Add-on not activated": "Add-on nicht aktiviert",
-    "Exporting requires your purchase key":
-        "Der Export erfordert deinen Kaufschlüssel",
-    "Activate license…": "Lizenz aktivieren…",
     "No model prepared": "Kein Modell vorbereitet",
     "Does not fit the plate!": "Passt nicht auf die Platte!",
     "Export .%s": ".%s exportieren",
@@ -176,22 +132,6 @@ _FR = {
     "Select a mesh object": "Sélectionnez un objet maillage",
     "The mesh has no faces": "Le maillage n'a pas de faces",
     "The .%s format is not supported yet": "Le format .%s n'est pas encore pris en charge",
-    "MiniSlicer is not activated: enter your purchase key in Edit > Preferences > Add-ons > MiniSlicer":
-        "MiniSlicer n'est pas activé : saisissez votre clé d'achat dans Edit > Preferences > Add-ons > MiniSlicer",
-    "License key": "Clé de licence",
-    "The key from your download page after purchase":
-        "La clé de votre page de téléchargement après l'achat",
-    "License active": "Licence active",
-    "Enter your purchase key to unlock exporting":
-        "Saisissez votre clé d'achat pour débloquer l'export",
-    "Activate": "Activer",
-    "Check the purchase key against the store":
-        "Vérifie la clé d'achat auprès de la boutique",
-    "The key format is not valid": "Le format de la clé n'est pas valide",
-    "Activated — purchase by %s": "Activé — achat de %s",
-    "Activated": "Activé",
-    "MiniSlicer activated. Thank you for your purchase!":
-        "MiniSlicer activé. Merci pour votre achat !",
     "Load / Refresh Model": "Charger / actualiser le modèle",
     "Takes the active object (with modifiers applied) and prepares it for slicing":
         "Prend l'objet actif (modificateurs appliqués) et le prépare pour le tranchage",
@@ -243,10 +183,6 @@ _FR = {
     "Scale (%)": "Échelle (%)",
     "Layer": "Couche",
     "Layer shown in the viewer": "Couche affichée dans la visionneuse",
-    "Add-on not activated": "Add-on non activé",
-    "Exporting requires your purchase key":
-        "L'export nécessite votre clé d'achat",
-    "Activate license…": "Activer la licence…",
     "No model prepared": "Aucun modèle préparé",
     "Does not fit the plate!": "Ne tient pas sur le plateau !",
     "Export .%s": "Exporter .%s",
@@ -257,22 +193,6 @@ _IT = {
     "Select a mesh object": "Seleziona un oggetto mesh",
     "The mesh has no faces": "La mesh non ha facce",
     "The .%s format is not supported yet": "Il formato .%s non è ancora supportato",
-    "MiniSlicer is not activated: enter your purchase key in Edit > Preferences > Add-ons > MiniSlicer":
-        "MiniSlicer non è attivato: inserisci la chiave d'acquisto in Edit > Preferences > Add-ons > MiniSlicer",
-    "License key": "Chiave di licenza",
-    "The key from your download page after purchase":
-        "La chiave della tua pagina di download dopo l'acquisto",
-    "License active": "Licenza attiva",
-    "Enter your purchase key to unlock exporting":
-        "Inserisci la chiave d'acquisto per sbloccare l'esportazione",
-    "Activate": "Attiva",
-    "Check the purchase key against the store":
-        "Verifica la chiave d'acquisto con il negozio",
-    "The key format is not valid": "Il formato della chiave non è valido",
-    "Activated — purchase by %s": "Attivato — acquisto di %s",
-    "Activated": "Attivato",
-    "MiniSlicer activated. Thank you for your purchase!":
-        "MiniSlicer attivato. Grazie per il tuo acquisto!",
     "Load / Refresh Model": "Carica / aggiorna modello",
     "Takes the active object (with modifiers applied) and prepares it for slicing":
         "Prende l'oggetto attivo (con i modificatori applicati) e lo prepara per lo slicing",
@@ -324,10 +244,6 @@ _IT = {
     "Scale (%)": "Scala (%)",
     "Layer": "Layer",
     "Layer shown in the viewer": "Layer mostrato nel visualizzatore",
-    "Add-on not activated": "Add-on non attivato",
-    "Exporting requires your purchase key":
-        "L'esportazione richiede la chiave d'acquisto",
-    "Activate license…": "Attiva licenza…",
     "No model prepared": "Nessun modello preparato",
     "Does not fit the plate!": "Non entra nel piatto!",
     "Export .%s": "Esporta .%s",
@@ -338,22 +254,6 @@ _PT = {
     "Select a mesh object": "Selecione um objeto de malha",
     "The mesh has no faces": "A malha não tem faces",
     "The .%s format is not supported yet": "O formato .%s ainda não é suportado",
-    "MiniSlicer is not activated: enter your purchase key in Edit > Preferences > Add-ons > MiniSlicer":
-        "O MiniSlicer não está ativado: insira sua chave de compra em Edit > Preferences > Add-ons > MiniSlicer",
-    "License key": "Chave de licença",
-    "The key from your download page after purchase":
-        "A chave da sua página de download após a compra",
-    "License active": "Licença ativa",
-    "Enter your purchase key to unlock exporting":
-        "Insira sua chave de compra para desbloquear a exportação",
-    "Activate": "Ativar",
-    "Check the purchase key against the store":
-        "Verifica a chave de compra na loja",
-    "The key format is not valid": "O formato da chave não é válido",
-    "Activated — purchase by %s": "Ativado — compra de %s",
-    "Activated": "Ativado",
-    "MiniSlicer activated. Thank you for your purchase!":
-        "MiniSlicer ativado. Obrigado pela sua compra!",
     "Load / Refresh Model": "Carregar / atualizar modelo",
     "Takes the active object (with modifiers applied) and prepares it for slicing":
         "Pega o objeto ativo (com modificadores aplicados) e o prepara para o fatiamento",
@@ -405,10 +305,6 @@ _PT = {
     "Scale (%)": "Escala (%)",
     "Layer": "Camada",
     "Layer shown in the viewer": "Camada mostrada no visualizador",
-    "Add-on not activated": "Add-on não ativado",
-    "Exporting requires your purchase key":
-        "A exportação requer sua chave de compra",
-    "Activate license…": "Ativar licença…",
     "No model prepared": "Nenhum modelo preparado",
     "Does not fit the plate!": "Não cabe na mesa!",
     "Export .%s": "Exportar .%s",
@@ -419,21 +315,6 @@ _JA = {
     "Select a mesh object": "メッシュオブジェクトを選択してください",
     "The mesh has no faces": "メッシュに面がありません",
     "The .%s format is not supported yet": ".%s 形式はまだ対応していません",
-    "MiniSlicer is not activated: enter your purchase key in Edit > Preferences > Add-ons > MiniSlicer":
-        "MiniSlicer は未認証です。Edit > Preferences > Add-ons > MiniSlicer で購入キーを入力してください",
-    "License key": "ライセンスキー",
-    "The key from your download page after purchase":
-        "購入後のダウンロードページに表示されるキー",
-    "License active": "ライセンス認証済み",
-    "Enter your purchase key to unlock exporting":
-        "エクスポートを有効にするには購入キーを入力してください",
-    "Activate": "認証",
-    "Check the purchase key against the store": "ストアで購入キーを確認します",
-    "The key format is not valid": "キーの形式が正しくありません",
-    "Activated — purchase by %s": "認証済み — %s の購入",
-    "Activated": "認証済み",
-    "MiniSlicer activated. Thank you for your purchase!":
-        "MiniSlicer を認証しました。ご購入ありがとうございます！",
     "Load / Refresh Model": "モデルを読み込み / 更新",
     "Takes the active object (with modifiers applied) and prepares it for slicing":
         "アクティブオブジェクト（モディファイア適用済み）をスライス用に準備します",
@@ -485,9 +366,6 @@ _JA = {
     "Scale (%)": "スケール (%)",
     "Layer": "レイヤー",
     "Layer shown in the viewer": "ビューアに表示するレイヤー",
-    "Add-on not activated": "アドオン未認証",
-    "Exporting requires your purchase key": "エクスポートには購入キーが必要です",
-    "Activate license…": "ライセンスを認証…",
     "No model prepared": "モデルが準備されていません",
     "Does not fit the plate!": "プレートに収まりません！",
     "Export .%s": ".%s をエクスポート",
@@ -498,21 +376,6 @@ _KO = {
     "Select a mesh object": "메시 오브젝트를 선택하세요",
     "The mesh has no faces": "메시에 면이 없습니다",
     "The .%s format is not supported yet": ".%s 형식은 아직 지원되지 않습니다",
-    "MiniSlicer is not activated: enter your purchase key in Edit > Preferences > Add-ons > MiniSlicer":
-        "MiniSlicer가 활성화되지 않았습니다. Edit > Preferences > Add-ons > MiniSlicer에서 구매 키를 입력하세요",
-    "License key": "라이선스 키",
-    "The key from your download page after purchase":
-        "구매 후 다운로드 페이지의 키",
-    "License active": "라이선스 활성화됨",
-    "Enter your purchase key to unlock exporting":
-        "내보내기를 사용하려면 구매 키를 입력하세요",
-    "Activate": "활성화",
-    "Check the purchase key against the store": "스토어에서 구매 키를 확인합니다",
-    "The key format is not valid": "키 형식이 올바르지 않습니다",
-    "Activated — purchase by %s": "활성화됨 — %s 구매",
-    "Activated": "활성화됨",
-    "MiniSlicer activated. Thank you for your purchase!":
-        "MiniSlicer가 활성화되었습니다. 구매해 주셔서 감사합니다!",
     "Load / Refresh Model": "모델 불러오기 / 새로 고침",
     "Takes the active object (with modifiers applied) and prepares it for slicing":
         "활성 오브젝트(모디파이어 적용됨)를 슬라이싱용으로 준비합니다",
@@ -564,9 +427,6 @@ _KO = {
     "Scale (%)": "스케일 (%)",
     "Layer": "레이어",
     "Layer shown in the viewer": "뷰어에 표시되는 레이어",
-    "Add-on not activated": "애드온 비활성화 상태",
-    "Exporting requires your purchase key": "내보내기에는 구매 키가 필요합니다",
-    "Activate license…": "라이선스 활성화…",
     "No model prepared": "준비된 모델 없음",
     "Does not fit the plate!": "플레이트에 맞지 않습니다!",
     "Export .%s": ".%s 내보내기",
@@ -577,19 +437,6 @@ _ZH = {
     "Select a mesh object": "请选择一个网格物体",
     "The mesh has no faces": "网格没有面",
     "The .%s format is not supported yet": "尚不支持 .%s 格式",
-    "MiniSlicer is not activated: enter your purchase key in Edit > Preferences > Add-ons > MiniSlicer":
-        "MiniSlicer 未激活：请在 Edit > Preferences > Add-ons > MiniSlicer 中输入购买密钥",
-    "License key": "许可证密钥",
-    "The key from your download page after purchase": "购买后下载页面上的密钥",
-    "License active": "许可证已激活",
-    "Enter your purchase key to unlock exporting": "输入购买密钥以解锁导出",
-    "Activate": "激活",
-    "Check the purchase key against the store": "向商店验证购买密钥",
-    "The key format is not valid": "密钥格式无效",
-    "Activated — purchase by %s": "已激活 — %s 的购买",
-    "Activated": "已激活",
-    "MiniSlicer activated. Thank you for your purchase!":
-        "MiniSlicer 已激活。感谢您的购买！",
     "Load / Refresh Model": "加载 / 刷新模型",
     "Takes the active object (with modifiers applied) and prepares it for slicing":
         "获取活动物体（已应用修改器）并准备切片",
@@ -640,9 +487,6 @@ _ZH = {
     "Scale (%)": "缩放 (%)",
     "Layer": "层",
     "Layer shown in the viewer": "查看器中显示的层",
-    "Add-on not activated": "插件未激活",
-    "Exporting requires your purchase key": "导出需要您的购买密钥",
-    "Activate license…": "激活许可证…",
     "No model prepared": "尚未准备模型",
     "Does not fit the plate!": "超出打印平台！",
     "Export .%s": "导出 .%s",
@@ -653,22 +497,6 @@ _RU = {
     "Select a mesh object": "Выберите меш-объект",
     "The mesh has no faces": "У меша нет граней",
     "The .%s format is not supported yet": "Формат .%s пока не поддерживается",
-    "MiniSlicer is not activated: enter your purchase key in Edit > Preferences > Add-ons > MiniSlicer":
-        "MiniSlicer не активирован: введите ключ покупки в Edit > Preferences > Add-ons > MiniSlicer",
-    "License key": "Лицензионный ключ",
-    "The key from your download page after purchase":
-        "Ключ со страницы загрузки после покупки",
-    "License active": "Лицензия активна",
-    "Enter your purchase key to unlock exporting":
-        "Введите ключ покупки, чтобы разблокировать экспорт",
-    "Activate": "Активировать",
-    "Check the purchase key against the store":
-        "Проверяет ключ покупки в магазине",
-    "The key format is not valid": "Неверный формат ключа",
-    "Activated — purchase by %s": "Активировано — покупка %s",
-    "Activated": "Активировано",
-    "MiniSlicer activated. Thank you for your purchase!":
-        "MiniSlicer активирован. Спасибо за покупку!",
     "Load / Refresh Model": "Загрузить / обновить модель",
     "Takes the active object (with modifiers applied) and prepares it for slicing":
         "Берёт активный объект (с применёнными модификаторами) и готовит его к слайсингу",
@@ -720,9 +548,6 @@ _RU = {
     "Scale (%)": "Масштаб (%)",
     "Layer": "Слой",
     "Layer shown in the viewer": "Слой, показанный в просмотре",
-    "Add-on not activated": "Аддон не активирован",
-    "Exporting requires your purchase key": "Для экспорта нужен ключ покупки",
-    "Activate license…": "Активировать лицензию…",
     "No model prepared": "Модель не подготовлена",
     "Does not fit the plate!": "Не помещается на платформу!",
     "Export .%s": "Экспорт .%s",
